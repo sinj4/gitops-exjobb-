@@ -1,0 +1,103 @@
+name: gitops-test
+
+# Kör mätningarna i GitHub Actions. Varje test får en egen, nyinstallerad miljö
+# (k3s + Argo CD) så att testerna inte påverkar varandra och kan köras parallellt.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "manifests/**"
+      - "argocd/**"
+      - "*.sh"
+      - "*.py"
+      - ".github/workflows/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gitops-test
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: "Del ${{ matrix.del }}"
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        del: ["1", "2", "3", "4", "5", "B"]
+    env:
+      KUBECONFIG: /etc/rancher/k3s/k3s.yaml
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sätt upp k3s och Argo CD
+        run: REPO_URL="https://github.com/${{ github.repository }}.git" ./01-setup.sh
+
+      - name: Kör tester
+        run: |
+          if [ "${{ matrix.del }}" = "B" ]; then
+            TESTS="" RUN_B=1 ./02-kor-tester.sh
+          else
+            TESTS="${{ matrix.del }}" RUN_B=0 ./02-kor-tester.sh
+          fi
+
+      - name: Diagnostik
+        if: always()
+        run: |
+          kubectl get nodes -o wide || true
+          kubectl -n argocd get pods || true
+          kubectl -n argocd get application demo -o yaml || true
+          kubectl -n demo get all,networkpolicy || true
+          kubectl -n argocd logs statefulset/argocd-application-controller --tail=200 || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resultat-${{ matrix.del }}
+          path: resultat/
+          if-no-files-found: warn
+
+  sammanstall:
+    name: Sammanställ och spara resultat
+    needs: test
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: resultat-*
+          path: delar
+
+      - name: Slå ihop rådata
+        run: |
+          mkdir -p resultat
+          first=$(ls delar/*/resultat.csv | head -1)
+          head -1 "$first" > resultat/resultat.csv
+          for d in 1 2 3 4 5 B; do
+            f="delar/resultat-$d/resultat.csv"
+            [ -f "$f" ] && tail -n +2 "$f" >> resultat/resultat.csv
+            v="delar/resultat-$d/versioner.txt"
+            [ -f "$v" ] && cp "$v" "resultat/versioner-del-$d.txt"
+          done
+          echo "run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" > resultat/korning.txt
+          echo "commit: ${{ github.sha }}" >> resultat/korning.txt
+          python3 03-sammanstall.py
+          cat resultat/sammanstallning.txt
+
+      - name: Spara i repot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resultat
+          git commit -m "Mätresultat från körning ${{ github.run_id }}" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
