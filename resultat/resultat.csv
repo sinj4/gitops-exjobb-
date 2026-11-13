@@ -1,0 +1,57 @@
+serie,test,namn,korning,start_utc,upptackt,tid_till_upptackt_s,aterstalld,tid_till_aterstallning_s,timeout_s
+A,T1,"Byta image i Deployment",1,2026-11-13T15:17:49Z,ja,0.3,ja,0.8,200
+A,T1,"Byta image i Deployment",2,2026-11-13T15:17:54Z,ja,0.2,ja,0.4,200
+A,T1,"Byta image i Deployment",3,2026-11-13T15:17:58Z,ja,0.2,ja,0.7,200
+A,T1,"Byta image i Deployment",4,2026-11-13T15:18:02Z,ja,0.3,ja,0.8,200
+A,T1,"Byta image i Deployment",5,2026-11-13T15:18:07Z,ja,0.3,ja,0.4,200
+A,T1,"Byta image i Deployment",6,2026-11-13T15:18:11Z,ja,0.2,ja,0.7,200
+A,T1,"Byta image i Deployment",7,2026-11-13T15:18:15Z,ja,0.3,ja,0.4,200
+A,T1,"Byta image i Deployment",8,2026-11-13T15:18:19Z,ja,0.4,ja,0.5,200
+A,T1,"Byta image i Deployment",9,2026-11-13T15:18:24Z,ja,0.2,ja,0.7,200
+A,T1,"Byta image i Deployment",10,2026-11-13T15:18:28Z,ja,0.2,ja,0.7,200
+A,T2,"Ta bort NetworkPolicy",1,2026-11-13T15:18:00Z,ja,0.2,ja,0.3,200
+A,T2,"Ta bort NetworkPolicy",2,2026-11-13T15:18:04Z,ja,0.2,ja,0.3,200
+A,T2,"Ta bort NetworkPolicy",3,2026-11-13T15:18:08Z,ja,0.3,ja,0.4,200
+A,T2,"Ta bort NetworkPolicy",4,2026-11-13T15:18:12Z,ja,0.3,ja,0.4,200
+A,T2,"Ta bort NetworkPolicy",5,2026-11-13T15:18:16Z,ja,0.3,ja,0.4,200
+A,T2,"Ta bort NetworkPolicy",6,2026-11-13T15:18:20Z,ja,0.3,ja,0.4,200
+A,T2,"Ta bort NetworkPolicy",7,2026-11-13T15:18:24Z,ja,0.2,ja,0.3,200
+A,T2,"Ta bort NetworkPolicy",8,2026-11-13T15:18:28Z,ja,0.2,ja,0.7,200
+A,T2,"Ta bort NetworkPolicy",9,2026-11-13T15:18:33Z,ja,0.2,ja,0.4,200
+A,T2,"Ta bort NetworkPolicy",10,2026-11-13T15:18:37Z,ja,0.3,ja,0.4,200
+A,T3,"Lägga till extra container",1,2026-11-13T15:18:17Z,nej,,nej,,200
+A,T3,"Lägga till extra container",2,2026-11-13T15:21:42Z,nej,,nej,,200
+A,T3,"Lägga till extra container",3,2026-11-13T15:25:06Z,nej,,nej,,200
+A,T3,"Lägga till extra container",4,2026-11-13T15:28:31Z,nej,,nej,,200
+A,T3,"Lägga till extra container",5,2026-11-13T15:31:55Z,nej,,nej,,200
+A,T3,"Lägga till extra container",6,2026-11-13T15:35:20Z,nej,,nej,,200
+A,T3,"Lägga till extra container",7,2026-11-13T15:38:44Z,nej,,nej,,200
+A,T3,"Lägga till extra container",8,2026-11-13T15:42:09Z,nej,,nej,,200
+A,T3,"Lägga till extra container",9,2026-11-13T15:45:33Z,nej,,nej,,200
+A,T3,"Lägga till extra container",10,2026-11-13T15:48:58Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",1,2026-11-13T15:17:54Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",2,2026-11-13T15:21:48Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",3,2026-11-13T15:25:43Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",4,2026-11-13T15:29:38Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",5,2026-11-13T15:33:32Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",6,2026-11-13T15:37:27Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",7,2026-11-13T15:41:21Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",8,2026-11-13T15:45:16Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",9,2026-11-13T15:49:10Z,nej,,nej,,200
+A,T4,"Skapa pod som inte finns i Git",10,2026-11-13T15:53:05Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",1,2026-11-13T15:18:17Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",2,2026-11-13T15:21:42Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",3,2026-11-13T15:25:06Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",4,2026-11-13T15:28:31Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",5,2026-11-13T15:31:56Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",6,2026-11-13T15:35:20Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",7,2026-11-13T15:38:45Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",8,2026-11-13T15:42:10Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",9,2026-11-13T15:45:35Z,nej,,nej,,200
+A,T5,"Ändra fil i körande container",10,2026-11-13T15:49:00Z,nej,,nej,,200
+B,T1,"Byta image i Deployment",1,2026-11-13T15:18:19Z,ja,0.4,ja,1.0,400
+B,T1,"Byta image i Deployment",2,2026-11-13T15:18:20Z,ja,0.3,ja,0.9,400
+B,T1,"Byta image i Deployment",3,2026-11-13T15:18:22Z,ja,0.4,ja,5.2,400
+B,T1,"Byta image i Deployment",4,2026-11-13T15:18:28Z,ja,0.3,ja,17.0,400
+B,T1,"Byta image i Deployment",5,2026-11-13T15:18:46Z,ja,0.3,ja,53.4,400
+B,T1,"Byta image i Deployment",6,2026-11-13T15:19:40Z,ja,0.3,ja,160.9,400

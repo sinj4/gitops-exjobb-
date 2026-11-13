@@ -1,0 +1,12 @@
+datum: 2026-11-13T15:17:56Z
+os: Ubuntu 24.04.5 LTS
+kernel: 7.0.0-1017-azure
+cpu: 4 kärnor
+minne: 15.6 GB
+k3s: k3s version v1.37.2+k3s1 (f6973cb8)
+kubernetes: Client Version: v1.37.2 Kustomize Version: v5.8.1 Server Version: v1.37.2+k3s1 
+argocd-image: quay.io/argoproj/argocd:v3.6.1
+timeout.reconciliation:  (tomt = standardvärde)
+repo: https://github.com/sinj4/gitops-exjobb-.git
+revision: f66d1d68b8b716f60ee4656db2ba07d1ca4258d8
+RUNS=10 REPEATS=6 TIMEOUT_A=200 TIMEOUT_B=400 POLL=0.3 TESTS=[2] RUN_B=0

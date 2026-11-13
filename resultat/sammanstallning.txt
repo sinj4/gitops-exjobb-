@@ -1,0 +1,24 @@
+SERIE A: utfall per ändring
+Test Ändring                             n  Upptäckt  Återställd  Median s   Min s   Max s
+T1   Byta image i Deployment            10        10          10       0.7     0.4     0.8
+T2   Ta bort NetworkPolicy              10        10          10       0.4     0.3     0.7
+T3   Lägga till extra container         10         0           0         -       -       -
+T4   Skapa pod som inte finns i Git     10         0           0         -       -       -
+T5   Ändra fil i körande container      10         0           0         -       -       -
+
+SERIE A: tid till upptäckt (endast upptäckta körningar)
+Test   n  Median s   Min s   Max s
+T1    10       0.2     0.2     0.4
+T2    10       0.2     0.2     0.3
+T3     0         -       -       -
+T4     0         -       -       -
+T5     0         -       -       -
+
+SERIE B: samma ändring upprepad utan att Application återskapas
+Körning    Upptäckt  Tid till upptäckt s  Återställd  Tid till återställning s
+1                ja                  0.4          ja                       1.0
+2                ja                  0.3          ja                       0.9
+3                ja                  0.4          ja                       5.2
+4                ja                  0.3          ja                      17.0
+5                ja                  0.3          ja                      53.4
+6                ja                  0.3          ja                     160.9
