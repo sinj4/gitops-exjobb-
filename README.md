@@ -22,7 +22,7 @@ Linux med sudo, minst 2 kärnor och 4 GB ledigt minne. På Windows: WSL2 (Ubuntu
 2. Sätt upp miljön (cirka 10 minuter):
 
    ```bash
-   REPO_URL=https://github.com/<användare>/gitops-exjobb.git ./01-setup.sh
+   REPO_URL=https://github.com/<användare>/gitops-exjobb-.git ./01-setup.sh
    ```
 
 3. Kör testerna. Låt datorn stå, stäng inte locket:
